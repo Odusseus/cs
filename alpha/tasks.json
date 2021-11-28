@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/beta/showcase/showcase.csproj",
+        "${workspaceFolder}/alpha/alpha.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -19,7 +19,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/beta/showcase/showcase.csproj",
+        "${workspaceFolder}/alpha/alpha.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -32,7 +32,7 @@
       "args": [
         "watch",
         "run",
-        "${workspaceFolder}/beta/showcase/showcase.csproj",
+        "${workspaceFolder}/alpha/alpha.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
