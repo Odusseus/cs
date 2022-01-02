@@ -11,7 +11,7 @@ class Program
             Console.WriteLine($"Input: {input}");
             var isDate = input.ToDate(out DateTime dateIn);
             string message = string.Empty;
-            if(isDate)
+            if(!isDate)
             {
               message = $" {input} is not a valide date dd-mm-yyyy.";
              Console.WriteLine(message);
