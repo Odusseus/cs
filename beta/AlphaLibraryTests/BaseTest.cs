@@ -2,6 +2,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
 using Cs.AlphaLibrary;
 using System;
+using System.Globalization;
+using System.Diagnostics;
+using System.Threading;
 
 namespace Cs.AlphaLibraryTest;
 
@@ -17,13 +20,19 @@ public class UnitTest1
         isTrue.Should().BeTrue();
     }
 
-    [TestMethod]
-    public void IsDate()
+    [DataTestMethod]
+    [DataRow("01-02-2021", "01-02-2021")]
+    [DataRow("01-0A-2021", null)]
+    public void IsDate(string dateString, string? assertDateString)
     {
-        var dateString = "01-02-2021";
+        DateTime? assertDate = null;
+        if(assertDateString != null)
+        {
+            assertDate = DateTime.ParseExact(assertDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+        }
 
         DateTime? date = dateString.ToDate();
 
-        date.Should().Be(new DateTime(2021,03,01));
+        date.Should().Be(assertDate);
     }
 }

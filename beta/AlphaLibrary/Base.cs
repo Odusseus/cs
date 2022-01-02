@@ -16,21 +16,37 @@ namespace Cs.AlphaLibrary;
       }
 
       string day = dateIn.Substring(0, 2);
-      int.TryParse(day, out int dayInt);
+      bool isInt = int.TryParse(day, out int dayInt);
+      if(!isInt)
+      {
+        return null;
+      }
+
       if(dayInt < 1 || dayInt > 31)
       {
         return null;
       }
 
       string month = dateIn.Substring(3, 2);
-      int.TryParse(month, out int monthInt);
+      
+      isInt = int.TryParse(month, out int monthInt);
+      if(!isInt)
+      {
+        return null;
+      }
+
       if(monthInt < 1 || monthInt > 12)
       {
         return null;
       }
 
       string year = dateIn.Substring(6, 4);
-      int.TryParse(year, out int yearInt);
+      isInt = int.TryParse(year, out int yearInt);
+      if(!isInt)
+      {
+        return null;
+      }
+      
       if(yearInt < 1 || yearInt > 9999)
       {
         return null;
