@@ -21,9 +21,9 @@ public class UnitTest1
     }
 
     [DataTestMethod]
-    [DataRow("01-02-2021", "01-02-2021")]
-    [DataRow("01-0A-2021", null)]
-    public void IsDate(string dateString, string? assertDateString)
+    [DataRow("01-02-2021", "01-02-2021", true)]
+    [DataRow("01-0A-2021", "01-01-0001", false)]
+    public void IsDateTest(string dateString, string assertDateString, bool assertIsDate)
     {
         DateTime? assertDate = null;
         if(assertDateString != null)
@@ -31,8 +31,25 @@ public class UnitTest1
             assertDate = DateTime.ParseExact(assertDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
         }
 
-        DateTime? date = dateString.ToDate();
+        bool isDate = dateString.ToDate(out DateTime date);
 
         date.Should().Be(assertDate);
+        isDate.Should().Be(assertIsDate);
+    }
+
+    [DataTestMethod]
+    //[DataRow("16-02-1968", 53)]
+    [DataRow("02-02-2003", 53)]
+     public void AgeTest(string dateString, int assertAge)
+    {
+        DateTime date = DateTime.MinValue;
+        if(dateString != null)
+        {
+            date = DateTime.ParseExact(dateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+        }
+
+        var age = date.Age();
+
+        age.Should().Be(assertAge);
     }
 }

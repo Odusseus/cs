@@ -4,5 +4,5 @@ dotnet run --project .\ShowCase\ShowCase.csproj
 for debugging : run and attach to ShowCase.exe 
 
 unittest
-for debugging : run Debug test, code must compile
+for debugging : run Debug test, code must compile.
 

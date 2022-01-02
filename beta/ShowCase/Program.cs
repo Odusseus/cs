@@ -9,15 +9,19 @@ class Program
             string? input = Console.ReadLine();
             if (string.IsNullOrEmpty(input)) break;
             Console.WriteLine($"Input: {input}");
-            var dateIn = input.ToDate();
+            var isDate = input.ToDate(out DateTime dateIn);
             string message = string.Empty;
-            if(dateIn == null)
+            if(isDate)
             {
-              message = "is not a valide date dd-mm-yyyy.";
+              message = $" {input} is not a valide date dd-mm-yyyy.";
+             Console.WriteLine(message);
             }
-            Console.WriteLine("Age ? " +
-                 $"{(input)}");
-            Console.WriteLine(message);
+            else
+            {
+              int age = dateIn.Age();
+              Console.WriteLine($"Date of birth {dateIn.Date}, age is " + $"{(age)}.");
+
+            }
         } while (true);
         return;
     }
