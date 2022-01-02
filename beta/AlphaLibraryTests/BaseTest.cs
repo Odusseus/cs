@@ -38,8 +38,9 @@ public class UnitTest1
     }
 
     [DataTestMethod]
-    //[DataRow("16-02-1968", 53)]
-    [DataRow("02-02-2003", 53)]
+    [DataRow("16-02-1968", 53)]
+    [DataRow("22-10-1969", 52)]
+    [DataRow("02-02-2003", 18)]
      public void AgeTest(string dateString, int assertAge)
     {
         DateTime date = DateTime.MinValue;
