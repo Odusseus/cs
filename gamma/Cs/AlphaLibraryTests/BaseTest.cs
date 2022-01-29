@@ -68,7 +68,7 @@ public class UnitTest1
     }
 
     #pragma warning disable 0618
-    var age = date.Age();
+    var age = date.GetAge();
 
     age.Should().Be(assertAge);
   }
