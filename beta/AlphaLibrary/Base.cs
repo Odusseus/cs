@@ -3,7 +3,7 @@
 namespace Cs.AlphaLibrary;
 public static class Base
 {
-  [Obsolete]
+  [Obsolete("In place use GetAge")]
   public static int Age(this DateTime dateOfBirth)
   {
     var totalDays = DateTime.Today.Date.Subtract(dateOfBirth).TotalDays;
@@ -32,6 +32,7 @@ public static class Base
     return age;
   }
 
+  [Obsolete]
   public static bool ToDate(this string dateIn, out DateTime dateOut)
   {
     if (dateIn.Length != 10)
@@ -191,5 +192,5 @@ public static class Base
     }
 
     return list;
-  }
+  }  
 }

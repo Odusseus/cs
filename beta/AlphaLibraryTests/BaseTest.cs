@@ -31,6 +31,7 @@ public class UnitTest1
       assertDate = DateTime.ParseExact(assertDateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
     }
 
+    #pragma warning disable 0612
     bool isDate = dateString.ToDate(out DateTime date);
 
     date.Should().Be(assertDate);
@@ -66,6 +67,7 @@ public class UnitTest1
       date = DateTime.ParseExact(dateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
     }
 
+    #pragma warning disable 0618
     var age = date.Age();
 
     age.Should().Be(assertAge);

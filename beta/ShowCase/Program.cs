@@ -4,12 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
+var builder = WebApplication.CreateBuilder(args);
+
        do
         {
             string? input = Console.ReadLine();
             if (string.IsNullOrEmpty(input)) break;
             Console.WriteLine($"Input: {input}");
-            var isDate = input.ToDate(out DateTime dateIn);
+            var isDate = input.TryToDate(out DateTime dateIn);
             string message = string.Empty;
             if(!isDate)
             {
@@ -18,7 +20,7 @@ class Program
             }
             else
             {
-              int age = dateIn.Age();
+              int age = dateIn.GetAge();
               Console.WriteLine($"Date of birth {dateIn.Date}, age is " + $"{(age)}.");
 
             }
