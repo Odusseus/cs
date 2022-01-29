@@ -1,5 +1,4 @@
 ﻿using Cs.AlphaLibrary;
-
 class Program
 {
     static void Main(string[] args)
