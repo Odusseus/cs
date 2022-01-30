@@ -11,4 +11,8 @@
     <ProjectReference Include="..\AlphaLibrary\AlphaLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Documentation\" />
+  </ItemGroup>
+
 </Project>

@@ -6,3 +6,5 @@ for debugging : run and attach to ShowCase.exe
 unittest
 for debugging : run Debug test, code must compile.
 
+https://docs.microsoft.com/en-us/dotnet/core/tutorials/publishing-with-visual-studio?pivots=dotnet-6-0
+
