@@ -1,0 +1,50 @@
+﻿@model AgeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Tools portal</h1>    
+</div>
+
+<div>
+            <h1>Birthday</h1>
+
+        <form asp-action="GetAge" method="post">
+@*            <div>
+                <label asp-for="DateOfBirth" class="" >Birthday</label>
+                <input asp-for="DateOfBirth" />
+            </div>*@
+            <div>
+                <div>
+                    <input asp-for="Day"/>
+                    <Label asp-for="Day">Day</Label>
+                </div>
+                <div>
+                    <input asp-for="Mounth"/>
+                    <label asp-for="Mounth">Mounth</Label>
+                </div>
+                <div>
+                    <input asp-for="Year"/>
+                    <label asp-for="Year">Year</Label>
+                </div>
+                <div>
+                   @Html.DisplayFor(model => model.ErrorMessage)
+                </div>
+               </div>
+            <div>
+               <p></p>
+            <button type="submit">Get Age</button>
+             <p></p>
+        </div>
+
+        </form>
+    </div>
+
+<div>
+    <h3>
+        @Html.DisplayNameFor(model => model.Age)
+        @Html.DisplayFor(model => model.Age)
+    </h3>
+</div>
