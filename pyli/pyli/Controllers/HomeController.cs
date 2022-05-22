@@ -29,16 +29,19 @@ namespace pyli.Controllers
 
         public IActionResult GetAge(AgeViewModel ageViewModel)
         {
-            var isDate = DateTime.TryParse($"{ageViewModel.Year}-{ageViewModel.Mounth}-{ageViewModel.Day}", out DateTime dateOfBirth);
-            if(isDate)
+            if (ModelState.IsValid)
             {
-                ageViewModel.DateOfBirth = dateOfBirth;
-                var age = Base.GetAge(ageViewModel.DateOfBirth);
-                ageViewModel.Age = age;
-            }
-            else
-            {
-                ageViewModel.ErrorMessage = ($"{dateOfBirth} is not a valid date. (dd-mm-yyyy)");
+                var isDate = DateTime.TryParse($"{ageViewModel.Year}-{ageViewModel.Mounth}-{ageViewModel.Day}", out DateTime dateOfBirth);
+                if (isDate)
+                {
+                    ageViewModel.DateOfBirth = dateOfBirth;
+                    var age = Base.GetAge(ageViewModel.DateOfBirth);
+                    ageViewModel.Age = age;
+                }
+                else
+                {
+                    ageViewModel.ErrorMessage = ($"{ageViewModel.Day}-{ageViewModel.Mounth}-{ageViewModel.Year} is not a valid date. (dd-mm-yyyy)");
+                }
             }
             return View("index", ageViewModel);
         }

@@ -20,14 +20,17 @@
                 <div>
                     <input asp-for="Day"/>
                     <Label asp-for="Day">Day</Label>
+                    <span asp-validation-for="Day" class="text-danger"></span>
                 </div>
                 <div>
                     <input asp-for="Mounth"/>
                     <label asp-for="Mounth">Mounth</Label>
+                        <span asp-validation-for="Mounth" class="text-danger"></span>
                 </div>
                 <div>
                     <input asp-for="Year"/>
                     <label asp-for="Year">Year</Label>
+                        <span asp-validation-for="Year" class="text-danger"></span>
                 </div>
                 <div>
                    @Html.DisplayFor(model => model.ErrorMessage)
