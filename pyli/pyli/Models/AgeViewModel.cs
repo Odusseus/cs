@@ -8,7 +8,6 @@ namespace pyli.Models
 
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
-        [Range(typeof(DateTime), "1/1/1800", "1/1/2100")]
         public DateTime DateOfBirth { get; set; }
 
         [Range(1, 31, ErrorMessage = "Value must be between 1 and 31")]
@@ -20,7 +19,7 @@ namespace pyli.Models
         [Range(1800, 2100, ErrorMessage = "Value must be between 1800 and 2100")]
         public int Year { get; set; }
 
-        public string ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
 
 
     }

@@ -43,6 +43,10 @@ namespace pyli.Controllers
                     ageViewModel.ErrorMessage = ($"{ageViewModel.Day}-{ageViewModel.Mounth}-{ageViewModel.Year} is not a valid date. (dd-mm-yyyy)");
                 }
             }
+            else
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+            }
             return View("index", ageViewModel);
         }
 
